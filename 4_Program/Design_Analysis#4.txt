@@ -1,0 +1,84 @@
+Kobe Davis
+Prof. Fant
+CS202
+2 June 2017
+
+Design Analysis
+
+1. How well did the data structure perform for the assigned application?
+
+	I think the data structure performed fine for this task, although, in my limited opinion, I wouldn't say it was optimal.
+	I can't see a customer of a pizza place taking advantage of all the functionalities a doubly linked list can give. When I think
+	of a doubly linked list, I imagine that going backwards and forwards will be necessary often, which would work great for 
+	scrolling through different devices or news sources, although I'm not sure anyone feels a need to swipe back and forth between
+	their pizzas. Seeing all of the pizzas at once and choosing one would be a much better approach, or even seeing all of the favorite
+	pizzas at once and then choosing one.
+
+2. Would a different data structure work better? Which one and why?
+
+	I believe a linear linked list would be perfectly fine for the assigned task. The customer doesn't need the abillity to go back and
+	forth from pizza to pizza, that's some multi-billion dollar tech company level of interaction. People want to eat pizza and move on
+	with their day, not stare at a pizza gallery. To these ends, a linear linked list would meet all expectations. (e.g. give them the
+	list of pizzas and let them choose one).
+
+3. What was efficient about your design and use of data structure?
+
+	I used a class called toppingList to hold the array of base class references and then had the dNode class derive from it. In doing
+	this, I allowed for the dNode to remain uncluttered by wrapper function, and created tons of orginizational ability pertaining
+	to the array of base class references in toppingList. This essentially allows the dNode class to have tons of flexibility concerning
+	the data it's holding while seeming isolated from it. Using a design where a class holds the array of base class references also 
+	makes interaction with the array easier within main because the functionality for adding, removing, retrieving, etc. is already there
+	in the form of functions in toppingList.
+
+4. What was not efficient?
+
+	My Load function (read from file for Combo pizza) struck me as fairly inefficient. It was extremely long, had a try-catch block 
+	extend, probably, much farther than needed, and a for loop that's only purpose was to trigger different if statements for 
+	separate text files. As of right now I'm unsure of how else I would create this function, but there has to be a better way for this
+	functionality to exist within the program. 
+
+5. What would you do different if you had more time?
+
+	I would definitely optimise/shorten the Load function more. Although this might require more time spent learning Java rather than 
+	smacking my head against a wall. I would also add more functionality in terms of editing orders rather than just deleting them and
+	starting anew. Lastly I would add Equals functions to all of the classes, currently most of them have one but not all of them. I 
+	feel that the Equals functions is a helpful part of any data structure.
+
+6. How well your program meets the goal of being Object Oriented:
+
+	a. Were there classes that had clear responsibilities?
+
+		Yes. The DLL class created the doubly linked list data structure alongside the dNode class which held the data. The toppingList
+		allowed for much more convenient access to data and much more convenient data creation on Insertion and Copying. The Instruction
+		class acted as an abstract base class for the three derived classes, and the three derived classes (Shape, Content, Extra) each
+		held data specific to the ingredient or section of pizza they were associated with.
+
+	b. Where did the hierarchical relationships fit in and would it be effective in a larger application?
+
+		A hierarchical relationship existed between Instruction(ABC) and Shape, Content, and Extra (Sub-Classes).
+		The other hierarchical relationship existed between toppingList(Base Class) and dNode(Sub-Class).
+		I believe these hierarchical relationships could work fine on a larger scale.
+
+	c. What was not Object Oriented?
+
+		Everything was Object Oriented.
+
+	d. Can you envision a design that would have been more Object Oriented (if you had more time)?
+
+		Not particularly.
+
+Strings:
+
+	Strings usage was normal during this program. Nothing surprising, have used them before.
+
+Function Overloading:
+	
+	Works the same.
+
+Dynamic Binding:
+
+	Found out about the "intsanceof" syntax. Really awesome for downcasting.
+
+Constructors:
+
+	Used super syntax. Was really interesting being to use it as a constructor and as an object to call methods.

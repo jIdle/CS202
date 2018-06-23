@@ -1,0 +1,10 @@
+website:2:3:facebook:08.30.17:Spoke to a friend shortly:www.facebook.com:/profile/picture:chrome
+social_app:2:8:snapchat:08.30.17:Sent pictures to girlfriend:Yen:Kobe
+game_app:2:30:clash of clans:08.30.17:Built an army:10:1:75
+social_app:1:20:instagram:08.30.17:Took pictures outside:No messages sent:No messages sent
+social_app:3:10:discord:08.30.17:Spoke to friends and played video games:Liam:Kobe
+game_app:1.5:10:RaidenX:08.30.17:Got purple laser upgrade:1:2:3
+website:0.2:3:D2L:08.30.17:Checked grades:www.d2l.com:/CS202:Firefox
+website:0.2:30:Google:08.30.17:Use it to search:www.google.com:No sub address:Chrome
+social_app:1:30:Reddit:08.30.17:Used league of legends subreddit:/u/test123:/u/me
+

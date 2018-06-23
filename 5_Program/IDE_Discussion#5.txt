@@ -1,0 +1,18 @@
+Kobe Davis
+Prof. Fant
+CS202
+9 June 2017
+
+IDE Discussion: IntelliJ IDEA
+
+One of the more helpful things I discovered during the process of creating Program #5 was the debugger. Because I had been so used to
+using Vim and the terminal I never had the chance to use a really nice Debugger with a GUI. IntelliJ allowed me to use breakpoints 
+just by clicking on the side of the line I wanted to stop at, it also allowed me to set conditions for the break and depending on if
+it was met the debugger would stop. The commands for the debugger were essentially the same as for GDB; there was step, next, display
+and so on. Something that was better in the IDE than in GDB was the ability to have certain key objects, values, or memory displayed
+in a watch window where you could see specifically what was happening to some memory as the program went on. This saved me from a lot
+of trouble at a certain point when I was setting data inside one of the BSTs and the data was disapearing after a loop. IntelliJ's 
+debugger showed me that the data I was setting was actually being allocated into new memory rather than changing the intended current
+memory. I also discovered that stepping into a Scanner object's next() method is a really bad idea, because you can't work backwards 
+in a debugger, and everything past that step leads down the rabbit hole of random libraries that the Scanner library happens to call.
+Which is a lot.

@@ -1,0 +1,18 @@
+Kobe Davis
+Prof. Fant
+CS 202
+4/24/2017
+
+Unix Debugger Discussion
+
+There weren't many occassions for this program that gdb became a necessary tool, although towards the end it was very useful.
+After I had finished writing the destructors for all of the applicable classes I went to compile, which succeeded. Then I ran
+the program which started fine, but on the delete of a temporary player pointer my program aborted with a double free
+error. The player pointer was temporary because it was only used to receive the players information, after input was over the
+temp player was deep copied into the LLL of Arrays data structure so it could be deleted and used for the next player. Stepping
+through gdb I discovered the issue was in one of my player's data members; the friends list. The first deletion of a temp player
+holder actually deleted the friends list, which was only a pointer to the real one that all players had access to. So when another
+temp player holder was deleted and the friends list was deleted again, I experienced the error noted above.
+
+Besides this, I was fortunate enough not to experience a signle segmentation fault during the entire process of creating this program
+so gdb was not very necessary.

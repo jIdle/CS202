@@ -1,0 +1,16 @@
+Kobe Davis
+Prof. Fant
+CS202
+5/23/2017
+
+Unix Debugger Discussion
+
+During the creation and testing my binary search trees retrieval function I had to use GDB to solve an exception that was being thrown.
+The problem was a bad cast exception was being thrown and aborting the program but I couldn't figure out why the program worked sometimes
+and why it didn't work other times. To solve this issue I place two break points, one on the entry of the recursive retrieval function
+and one on the RTTI process that happened when the retrieve function found the specified data. Stepping through GDB showed me that the
+program was running fine when I chose to retrieve the same type of derived class as I had previously created. This is because the temporary
+base class pointer I was handing in, had actually been allocated data as the last type I had created. Using [print base] revealed that
+when I tried to retrieve, for example, a website object, the base pointer was actually pointing at memory allocated as a social_app object.
+When trying to deep copy memory over, the program was throwing a bad cast because the dynamic_cast can't return NULL if it isn't returning
+to a pointer.

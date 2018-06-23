@@ -1,0 +1,170 @@
+Kobe Davis
+Prof. Fant
+CS 202
+25 May 2017
+
+Design Write-up: Program #4-5
+
+Design Considerations:
+
+	The major design consideration for the program is class communication. Program #4-5 includes a class hierarchy to store information related to pizza toppings,
+	and a data structure consisting of a Doubly Linked List of Arrays. The assignment requires that the Abstract Super Classes are stored within the arrays, this
+	means that to communicate with the Object Oriented portion of the assignment, communication would have to go through the array, which would reside in the nodes
+	that make up the Doubly Linked List. Even before that, the communication would have to go through the Doubly Linked List Class interface first. The most
+	important problem I noticed here was that this design puts a lot of responsibility on the node. This is bad because a node's job is to be container for data
+	and point to the next and previous nodes in the list. A node's job ISN'T to organize and manage the data stored inside of itself, that would be too much 
+	responsibility and functionality stuffed into one class, and one with a totally vague name at that. To remedy this, I decided to create a new class called 
+	toppingList that dNode (node class) will derive from. This means toppingList would take on the responsibility of managing the array of Instruction references. 
+	The added benefit of making this an inherited relationship is that dNode won't be cluttered by wrapper functions to toppingList.
+
+	The second major design consideration involved Program 5's tree of trees. Deciding on how the BST would navigate through two different types of nodes was
+	problematic at first. In the end, I decided to have two types of nodes in the BST; bNode and b2Node are their names. bNode would make up the outer tree and
+	contain a b2Node. b2Node would make up the inner trees and actually take part in a hierarchical relationship. Much like the dNode, b2Node will act as a sub
+	class to the toppingList super class. To solve navigation problems, the BST methods will just have to take into account two different types of nodes when
+	traversing. Just to give an example, if the client searches for a certain pizza inside a certain Pizzeria, the retrieve function could have two parts to it,
+	where the first traverse through bNodes, and the second traverse through b2Nodes.
+
+	To ensure this program remains object oriented, I have made sure that the assigned data structures only store the hierarchical classes rather than intermixing
+	with them. This will result in a kind of modular design, where the data held by the data structure could, more or less, be replaced by some other type of data
+	and still function correctly.
+
+
+Classes and Functions:
+
+	Instruction: (Abstract Super Class)
+
+		Fields:		int Calories
+				double Price
+				boolean Spicy
+				boolean Allergens
+				String Notes
+
+		Methods:	Default constructor
+				Constructor with data member arguments  
+				Copy constructor
+				Abstract Equals function: Return boolean
+				Abstract Display function: Return void
+				Abstract Setter function: Return void
+
+	Shape: (Sub Class of Instruction)
+
+		Fields:		int Size
+				String Cooking Method
+				String Crust Type
+				boolean Gluten
+
+		Methods:	Default constructor  
+				Constructor with data member arguments
+				Copy constructor
+				Equals function: Return boolean
+				Display function: Return void
+				Setter function: Return void
+
+	Content: (Sub Class of Instruction)	
+
+		Fields:		String Cheese
+				String Sauce
+
+		Methods:	Default constructor  
+				Constructor with data member arguments
+				Copy constructor
+				Equals function: Return boolean
+				Display function: Return void
+				Setter function: Return void
+
+	Extra: (Sub Class of Instruction)
+
+		Fields:		String Topping
+				boolean Vegetarian
+				int Density
+
+		Methods:	Default constructor  
+				Constructor with data member arguments
+				Copy constructor
+				Equals function: Return boolean
+				Display function: Return void
+				Setter function: Return void
+
+	toppingList: (Super Class)
+
+		Fields:		Instruction [] Details
+				boolean Delivered
+
+		Methods:	Default constructor  
+				Constructor with data member arguments
+				Copy constructor
+				Equals function: Return boolean
+				Display: Return void
+				Retrieve: Return integer
+				Remove: Return integer
+				Insert: Return integer
+
+	DLL: (Doubly Linked List Data Structure)
+
+		Fields:		dNode Head
+				dNode Tail
+
+		Methods:	Default constructor  
+				Constructor with data member arguments
+				Copy constructor
+				Equals function: Return boolean
+				Display: Return void
+				Retrieve: Return Instruction
+				Remove Order: Return integer
+				Remove Detail: Return integer
+				Insert: Return integer
+				Remove All: Return void
+
+	dNode: (Sub Class of toppingList, Node used in Doubly Linked List)
+
+		Fields:		dNode Next
+				dNode Previous
+
+		Methods:	Default constructor  
+				Constructor with data member arguments
+				Copy constructor
+				Get Next: return dNode
+				Get Previous: return dNode
+
+Program #5 Specifics:
+
+	The classes from Program #4 will also be used in this section. The following are specific to the second half of the program.	
+	
+	BST: (Binary Search Tree Data Structure)
+
+		Fields:		bNode root
+
+		Methods:	Default constructor
+				Constructor with data member arguments
+				Copy constructor
+				Equals function: Return boolean
+				Display: Return void
+				Insert: Return integer
+				Remove: Return integer
+				Retrieve: Return integer
+				Remove All function: Return void
+
+	bNode: (Node used in outer Binary Search Tree)
+
+		Fields:		bNode left
+				bNode right
+				b2Node root
+				String Pizzeria Name
+
+		Methods:	Default Constructor
+				Constructor with data member arguments
+				Copy constructor
+				Get Left: Return bNode
+				Get Right: Return bNode
+				Get Root: Return b2Node
+
+	b2Node: (Sub Class of toppingList, Node used in inner Binary Search Tree)
+
+		Fields:		b2Node left
+				b2Node right
+	
+		Methods:	Default constructor
+				Constructor with data member arguments
+				Copy constructor
+				Get Left: Return b2Node
+				Get Right: Retur b2Node

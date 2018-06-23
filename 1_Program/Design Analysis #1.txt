@@ -1,0 +1,71 @@
+Kobe Davis
+Prof. Fant
+CS 202
+4/24/2017
+
+Design Analysis
+
+1. How well did the data structure perform for the assigned application?
+	
+	For the maze portion of the program, I believe the graph data structure was the perfect choice. It fit perfectly for what we needed 
+	(e.g. connecting different points randomly for other objects to navigate). Even the diagrams of the graph during the design
+	process resembled mazes found in video games or newspapers. On the other hand, I think that the linear linked list of arrays for 
+	storing the players was a bit of an overkill. Creating a LLL of Arrays is like making the assumption that we're going to need tons
+	of expandable space for new players to continue joining. Realistically, I couldn't see a local version of this game containg more than
+	four players at a time. Even if it were an online multiplayer, I doubt it would need more than 20 or 30 slots for players. 
+
+2. Would a different data structure work better? Which one and why?
+
+	I would have probably just used an array instead of something exandable since a new game could just be made if more players wanted to 
+	play also. Using an array also has the added benefit of direct access all the time instead of having any traversal, this type of access
+	would have been better because of how much data access and transfer happened while moving the players around the maze. Aside from the 
+	efficiency of the data structure, an array would have been better because we actually DON'T want lots of players. Literally no one wants
+	to wait for 40 other people to take a turn before they can. This game would do better in a smaller setting where a person has to wait 
+	for a maximum of 10 people.
+
+3. What was efficient about your design and use of data structure?
+
+	I chose not to actually transfer lots of the player's data to and from different locations, or anywhere for that matter.
+	Instead my method for moving players involved changing two integers and nothing else. Each vertex held the index they were stored at
+	inside the array of vertices, each player held the index of the vertex they were currently on. This index is also the index of the 
+	vertex they are standing on inside the vertex array. When a player wanted to move, the operations involved were: checking the edgelist
+	of the vertex stored at the index the player has stored to see if the move is valid, then updating the stored int inside the player to
+	match the one they chose, or returning false for an invalid movement. I thought this would be much better than trying to move player
+	data or perhaps tie the player to the graph somehow, in this way both the players and the graph work completely independently, and
+	could even be applied to other tasks if needed.
+
+4. What was not efficient?
+
+	I believe that amount of getters and setters I had used was really bad in terms of efficiency and design. This was the first time I
+	had ever done OOP so how each class accessed each other wasn't very well thought out. 
+
+5. What would you do different if you had more time?
+
+	I would definitely make access between class much much more convenient. Right now, lots of access is done through getters and setters
+	which I didn't really want to do but didn't really have any other choice. To do this I would have to spend more time thinking about 
+	which way I could use hierarchies to give access to certain classes.
+
+6. How well your program meets the goal of being Object Oriented:
+
+	a. Were there class that had clear responsibilities?
+
+		Yes there were. Almost every class had a clear purpose. All classes had a purpose, although I would necessarily say they were clear.
+
+	b. Were there class that had clear responsibilities?
+
+		Yes, unfortunately. The list class and graph class worked very well and did what they were supposed to, although some of the smaller
+		classes may have tried to pick up too much work which made the access and functionality of the larger classes harder. 
+
+	c. Where did the hierarchical relationships fit in and would it be effective in a larger application?
+
+		The hierarchical application are found between the location class and the player class, and the location class and the vertex class.
+		Ultimately, I don't think this would be the best design choice in a larger application, but it worked out ok this time.
+
+	d. What was not Object Oriented?
+
+		I'm not sure that anything wasn't Object Oriented. 
+
+	e. Can you envision a design that would have been more Object Oriented (if you had more time)?
+
+		Yes, I believe I could have created a design structure that would have given all of the classes better access to each other through
+		a hierarchy.

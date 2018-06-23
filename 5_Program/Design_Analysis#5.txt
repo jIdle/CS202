@@ -1,0 +1,63 @@
+Kobe Davis
+Prof. Fant
+CS202
+9 June 2017
+
+Design Analysis
+
+1. How well did the data structure perform for the assigned application? + 2. Would a different data structure work better? Which one and why?
+
+	I think this data structure worked fine. There may be lots of Pizzerias and lots of Pizzas, so a BST would make
+	searching for them a lot faster. This also has the added benefit of Pizzerias and Pizzas being easy to sort because
+	they both have names. Althoug hthat isn't to say some other data structure couldn't work. Obviously a Hash Table would
+	do fine, a Graph would also work for location reasons, and any of the linked lists would be fin, just not as fast.
+
+3. What was efficient about your design and use of data structure?
+
+	The use of hierarchies was where my program was efficient. Instead of having the outer tree contain oNodes which
+	contain inner trees which contain iNodes which contain toppingLists and onwards, I used parent and derived classes
+	to cut down on excess wrapper functions and containment. The oNode was derived from the inner tree, which allowed 
+	for the oNode to just do node things but also have free access to all of the functions that the inner tree had. This
+	applied to all of the hierarchical relationships and made programming MUCH easier.
+
+4. What was not efficient?
+
+	I'm not sure if it was efficient to have two different BST classes. It may have been better to have just one BST class
+	and have it be compatible for both iNodes and oNodes, possibly like a template, but worst case scenario it could just 
+	have uninitialized references to whichever node it isn't using. This would cut down on a lot of replicated code because
+	as it stands now, lots of the functionality in both the inner and outer trees could have easily been one function with 
+	slight alterations depending on the datatype used.
+
+5. What would you do different if you had more time?
+
+	If I had more time to work on this program I would have included a Search function that would allow the user to check
+	all Pizzerias for all Pizzas that match the closest description of the Pizza they want. This would work nicely for an
+	actual Pizzeria application in real life because it would be really useful for anyone who wants something specific but
+	can't find it.
+
+6. How well your program meets the goal of being Object Oriented:
+
+	a. Were there classes that had clear responsibilities?
+
+		Yes. The pizzeriaTree class acts the outer tree in this program, it is made up of oNode class which hold data by parent
+		class. oNode is derived from Pizzeria class which is the inner tree that holds all of the pizzas. The pizzas are represented
+		by the toppingList just like the last program. The inner tree uses nodes iNode to hold data. iNode holds data by being a
+		derived class of toppingList.
+		The toppingList allowed for much more convenient access to data and much more convenient data creation on Insertion and Copying. 
+		The Instruction class acted as an abstract base class for the three derived classes, and the three derived classes
+		(Shape, Content, Extra) each held data specific to the ingredient or section of pizza they were associated with.
+
+	b. Where did the hierarchical relationships fit in and would it be effective in a larger application?
+
+		A hierarchical relationship existed between Instruction(ABC) and Shape, Content, and Extra (Sub-Classes).
+		The other hierarchical relationship existed between toppingList(Base Class) and iNode(Sub-Class),
+		and oNode(Sub-Class) and Pizzeria(Base Class).
+		I believe these hierarchical relationships could work fine on a larger scale.
+
+	c. What was not Object Oriented?
+
+		Everything was Object Oriented.
+
+	d. Can you envision a design that would have been more Object Oriented (if you had more time)?
+
+		Not particularly.

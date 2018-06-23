@@ -1,0 +1,22 @@
+Kobe Davis
+Prof. Fant
+CS202
+2 June 2017
+
+IDE Discussion: IntelliJ IDEA
+
+Being able to finally use an IDE is really great. Copying and Pasting is much faster for me with the mouse, this may be due to the fact
+that I have used a mouse my whole life and not Vim. Possible cause there.
+I started out using Eclipse, which I was also ok with. Everything worked fine, it corrected a lot of errors, besides being slow at times
+it was really convenient. An issue I ran into with Eclipse was in transfering, exporting, and importing files on Eclipse. This turned out
+to be a nightmare because earlier versions of Eclipse wouldn't compile the code, and it would compile on the command line either.
+I found my savior in IntelliJ. After a frustrating few hours of trying to get the code I had written home to work at lab, a TA suggested
+trying IntelliJ. I created a new project in IntelliJ and tossed my file in, drag and click. Once they were in the src file, IntelliJ
+compiled them fine and adapted them to the current project. It was kind of amazing.
+
+So nothing against Eclipse really, IntelliJ just made things easier for me so I chose to stick with it. Having now spent even more time
+using it, I've found that I can change my editors theme, I can switch through tabs really easily, the layout if almost completely modular,
+and I can set keyboard AND MOUSE shortcuts for editor commands. (IntelliJ understood my special mouse buttons, not just left and right click).
+Pretty much never going to switch at this point. 
+
+++IntelliJ

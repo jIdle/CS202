@@ -1,0 +1,149 @@
+Kobe Davis
+Prof. Fant
+CS 202
+15 May 2017
+
+Design Write-up: Program #3
+
+The major design consideration for this program, is how the different classes should communicate with each other, and ultimately, how should they communicate with the client?
+For now, I am going to have a Website class, Social_App class, and Game_App class derive from the abstract base class Program. Meaning, Program will be the pointer that all
+three of these derived classes will be upcasted to inside the specified data structures. The Program class pointer will be contained in each node in my binary search tree.
+This way a binary search tree can be filled with Websites, Social_Apps, and Game_Apps at the same time. Binary search trees will be contained inside linear linked list nodes.
+The goal in doing this, is to create a data structure that represents "locality of reference", where data stored in the same binary search tree are considered to have the same
+frequency of use. Depending on any one data's frequency of use, it may be placed closer or further to the front of the list. This design allows faster access of more frequently
+used data. To summarize, the programs will be included in the bst files, the bst related code will be included in the lll files, lastly the lll code will be included into main.
+Hopefully in doing this the user/client can use my "list" data structure without knowing too much about it but being able to conveniently use it. 
+The other design consideration is how and where operator overloading should be implemented. I plan on mainly including the required operators in both the linear linked list data
+structure and the binary search tree data structure, although if the opportunity comes about I may also include overloaded operators within the program or node classes.
+
+To avoid getters in these classes I plan to use the following instead: constructors with arguments, copy constructors, overloaded assignment operators, and setter functions.
+In specific cases comparisons on certain data members will be necessary, to avoid getters here I will create comparison functions that return data through argument.
+
+Classes and Functions:
+
+	Program Class: (Abstract Base Class)
+		Data Members:	Time Used(integer)
+						Frequency Used(integer)
+						Name(char*)
+						Date(char*)
+						Actions(char*)
+
+		Functions:		Default constructor  
+						Copy constructor
+						Overloaded assignment operator
+						A virtual destructor 
+						A pure virtual display function
+						A pure virtual setter function
+						A name comparison function
+						A frequency of use comparison function
+
+	Website Class: (Derived from Program)
+		Data Members:	Address(char*)
+						Children Addresses(array of char*)
+						Browser Used(char*)
+
+		Functions:		Default constructor 
+						Copy constructor
+						Overloaded assignment operator
+						Destructor
+						A display function
+						A setter function
+
+	Social_App Class: (Derived from Program)
+		Data Members:	Message Sent To(array of char*)
+						Message Sent From(char*)
+
+		Functions:		Default constructor
+						Copy constructor
+						Overloaded assignment operator
+						Destructor
+						A display function
+						A setter function
+
+	Game_App Class: (Derived from Program)
+		Data Members:	Achievements Unlocked(int)
+						Levels Gained(int)
+						Current Level(int)
+
+		Functions:		Default constructor
+						Copy constructor
+						Overloaded assignment operator
+						Destructor
+						A display function
+						A setter function
+
+	List Node Class: (Node used in Linear Linked List Data Structure)
+		Data Members:	BST of Apps/Websites(BST)
+						Next Pointer(list_node*)
+						Frequency of Use Categorization(int)
+
+		Functions:		Default constructor
+						Destructor
+						A next node getter function
+						A frequency comparison wrapper function
+
+	BST Node Class: (Node used in Binary Search Tree Data Structure)
+		Data Members:	Pointer to Program Classtype(Abstract Base Class)(program*)
+						Left Child Pointer(bst_node*)
+						Right Child Pointer(bst_node*)
+
+		Functions:		Default constructor
+						Destructor
+						A name comparison wrapper function
+						A Program pointer retrieval function
+
+	BST Class: (Binary Search Tree Data Structure)
+		Data Members:	BST Node root pointer(bst_node*)
+
+		Functions:		Default constructor
+						Destructor
+						An insert function(addition operator and addition assignment operator)
+						A removal function(subtraction operator and subtraction assignment operator)
+						A retrieval function
+						A display function
+						A copy function(assignment operator)
+
+	LLL Class: (Linear Linked List Data Structure)
+		Data Members:	List Node head pointer(list_node*)
+
+		Functions:		Default Constructor
+						Destructor
+						An insert function(addition operator and addition assignment operator)
+						A removal function(subtraction operator and subtraction assignment operator)
+						A retrieval function
+						A display function
+						A copy function(assignment operator)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

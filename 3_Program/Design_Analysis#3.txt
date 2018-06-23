@@ -1,0 +1,60 @@
+Kobe Davis
+Prof. Fant
+CS202
+5/23/2017
+
+Design Analysis
+
+1. How well did the data structure perform for the assigned application?
+
+	I think the data structure performed perfectly for the assigned application. Although depending on the definition of frequency or
+	"how often" an app is used, a bst may not make sense over a few others. Where a bst can take lots of data and drastically shorten
+	the amount of time it takes to find any one particular element, it might not make such a difference if there isn't that much data
+	in the first place. Particularly with phone, people generally don't have THAT many apps. Somewhere in the ballpark of 40 or 50.
+
+2. Would a different data structure work better? Which one and why?
+
+	If bsts are only holding data with the SAME frequency, then the bsts may not be holding more than 4 or 5 elements at most. A better
+	option migh be another linked list or an array seeing as there isn't a lot of data to search through. A linked list would be ok because
+	traversal length isn't an issue with only 4 or 5 elements. If low density is guaranteed, we can just toss an array in with a low capacity
+	and call it good. An array's performance is always better than the others.
+
+3. What was efficient about your design and use of data structure?
+
+	I made the choice to have my linear linked list nodes inherit from the binary search tree class. I did this because a LLL node wouldn't
+	be created if there wasn't any data to insert in the first place. This accomplishes two things. The first: Now when a node is created,
+	a binary search tree is also created by default, this means that no extra work is required unless a constructor needs to be called for
+	the binary search, which is just another added benefit. The second: The LLL node does not have to call wrapper function in the binary 
+	search tree class to access functions (which is what it would normally have to do if the bst was contained inside the LLL node).
+	Being a derived class allows the LLL node to call protected function from the get-go, which makes life a lot easier.
+
+4. What was not efficient?
+
+	It probably wasn't efficient to NOT create a string class for this assignment. Lots of allocating memory for cstrings.
+
+5. What would you do different if you had more time?
+
+	I would definitely create my own string class. I might also try to find a fitting operator for the retrieve function. Every operator
+	seemed taken with some other job, and nothing seemed to fit the retrieve function so I did not implement any overloaded operators for it.
+
+6. How well your program meets the goal of being Object Oriented:
+
+	a. Were there classes that had clear responsibilities?
+
+		Yes, each class had a clear responsibility. The program class was the abstract base class for the website class, social_app class, and
+		game_app class. Those three derived classes held all the data specific to their purpose. The list class, l_node class, bst class, and
+		b_node class completely made up the data structure that used the OO code. No class was purposeless.
+
+	b. Where did the hierarchical relationships fit in and would it be effective in a larger application?
+
+		The hierarchical relationship was between the program class(abstract base class), website class(derived class),
+		social_app class(derived class), and game_app class(derived class). The other hierarchical relationship was between the
+		l_node class(derived class) and the bst class(base class).
+
+	c. What was not Object Oriented?
+
+		Every was Object Oriented.
+
+	d. Can you envision a design that would have been more Object Oriented (if you had more time)?
+
+		Not particularly.

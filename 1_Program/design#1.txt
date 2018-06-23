@@ -1,0 +1,105 @@
+Kobe Davis
+Prof. Fant
+CS202
+4/14/2017
+
+Design Write-up #1
+
+Purpose:
+	The purpose of this assignment is to understand and implement Object Oriented Programming. This well be accomplished by
+	creating a Multiplayer Maze game where groups of players will attempt to find their way through a randomly generated
+	maze to the finish checkpoint. To complete this assignment, the relationship and interactions between the Players,
+	Graph, Lists, and Locations must be well thought out. Everyone should be able to win and players should be able
+	to gain rewards along the way. Understanding class relationships and interactions entails exploring inheritance and 
+	containment between classes in the assignment.
+
+Major Design Considerations:
+	
+	The major considerations made for this assignment were concerning the use of a Graph and the use of a Player.
+	I decided to have these two concepts remain separate from each other so that the graph data structure could work
+	fully independently no matter what changes are to be made to the Player or if I might need to add some other object.
+	Because I've decided to separate the graph and player concepts, I needed a way for them to interact with each other.
+	In response, I decided to place both of them in an overarching class that will mediate between them. The alternative
+	was to implement either a "has a" or an "is a" relationship between the two, although every iteration I went through
+	seemed to either be tedious or give the Player object way too much control over the graph data structure.
+
+	Pertaining to the randomness of the graph specifically, it seemed like a good idea to go with a creation method rather
+	than decomposition. This method will work by using the rand function to initialize a randomly sized array of vertices,
+	a random number of connections for each vertex, and finally, random connections made by randomizing the selected vertex
+	index for connection by an edge.
+
+	The Players relationship to its Location is the last major design consideration. Because Location is something that will
+	be accessed frequently, and each Vertex seems to have something similar in the form of a integer for its index, I
+	decided to have the Player as a derived class from the Location class. In this way the Player will be able to easily
+	access their location information, and a "location" is able to be used independently.
+
+Classes:
+	
+	Game Class:
+		This class will be the mediator between the Player Manager class and the Graph class. Without this class neither
+		of the aforementioned classes would be able to interact with each other. Besides this, the Game class will be
+		what makes use of all the other classes functionalities and relationships, it will essentially be what structures
+		the entire design to be what seems like a maze game.
+
+	Player Manager Class:
+		This class will hold a list of all Players and Groups. It will contain functionality to add players, remove
+		players, display players, create groups, remove groups, display groups, display players in specified group,
+		and any other operations concerning interactions between players and groups. Alongside this, the Player 
+		Manager Class will hold data members to keep track of any important information pertaining to entire groups
+		of players.
+
+	Location Class:
+		The Location class will be a base class for the Player Class. The Location class will hold functionality
+		allowing the player to know the name of where they are and what vertex they are on.
+
+	Player Class:
+		The Player class will be derived from the Location class. The reason for this is that, every player can be
+		associated with a location at any given time, although not every location should be associated with a player.
+		The Player class will contain a Player List class, a Name class, and a Rewards List class, so that the Player
+		will always be able to see who their friends are, always have a name that can be accessed by others, and be able
+		to keep an ongoing list of rewards they've gathered and access them on their turn.
+
+	Player List Class:
+		The Player List class will create a list of Players using a Linear Linked List of Arrays. This class will be
+		used whenever there is a need for some list of Players, whether that be a list of all players or a list of 
+		Players inside a group. This will be implemented using the Player_Node class which will be the node holding
+		the array of players that makes up the data structure mentioned earlier. Any functionality that is needed
+		for the particular group of Players will be held inside the Player List class. These functionalities will 
+		probably be reward interactions between friends.
+
+	Rewards List Class:
+		The Reward List class will hold a Linear Linked List of Arrays with the arrays being made of Reward_Nodes.
+		The purpose of this class is to control the use and gain of rewards. 
+
+	Name Class:
+		Contained inside the Player class, the Name class will have details pertaining to the individual player.
+		Ex: Name/Tag/Comments/any other personal info
+
+	Graph Class:
+		The Graph class is a large class defining and creating the graph data structure. It will contain an array of 
+		vertices and other functionality such as: generate graph, retrieve location, and display_graph. 
+
+	Node Class:
+		This class will be a base class for Vertex, Player_Node, and Reward_Node. Inside there will be the basic
+		structure of a node class that each of its derived classes will be able to make use of, such as: a next
+		pointer, a get next function.
+
+	Vertex Class:
+		The Vertex class is a specialization of the Node class being derived from it. It will add a previous pointer
+		and a get previous function.
+
+	Player_Node Class:
+		The Player_Node class is a specialization of the Node class being derived from it. It will add a pointer
+		to a Player type.
+
+	Reward_Node Class:
+		The Reward_Node class is a specialization of the Node class being derived from it. It will add a pointer
+		to a Reward type.
+
+	Checkpoint Class:
+		The Checkpoint class is slightly different than the few above, it will be a derived class from the Vertex
+		class. The reason for this is that each vertex must contain more information than just a name or index to
+		be part of this game. Adding the Checkpoint class means that we now have access to promoted vertices. 
+		Certain vertices may now offer rewards or have special names, or anything else really. The point of this
+		class is for the Player to feel rewarded when they land on this special variation.
+

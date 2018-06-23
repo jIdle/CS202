@@ -1,0 +1,58 @@
+Kobe Davis
+Prof. Fant
+CS 202
+5/6/2017
+
+Design Analysis
+
+1. How well did the data structure perform for the assigned application?
+
+	I think the binary search tree worked great for holding the contact information. It was a fast and efficient method for storing information by name.
+	On the other hand I think the circular linked list could have been replaced with a doubly linked list. I can imagine it would be ridiculously annoying
+	to have to swipe ALL THE WAY through your communication methods just to get back to one you missed.
+
+2. Would a different data structure work better? Which one and why?
+
+	As stated above, the DLL would work better, mainly because of the faults of a circular linked list, but I think it would also shine when the user
+	wants to switch back and forth between two methods of communication quickly. Moving to the next comm in line is like committing to not going back.
+
+3. What was efficient about your design and use of data structure?
+
+	There wasn't much of anything in my design that stood out as overly efficient besides making sure not to pass classes by value abd try to pass by reference.
+	One thing that I did do is create my BST removal function to remove the whole node if only one person was inside the array that need to be removed.
+	In this way the destructor would take care of the data in the array.
+	Another thing that could be seen as efficient was using functions in place of repetetive code so that hundreds of lines of code didn't need to be written.
+
+
+4. What was not efficient?
+
+	The amount of code that went into doing deep copies of data members. Without a doubt I could have placed much of the deep copy functionality
+	inside copy constructors or just functions in general that would take care of that.
+
+5. What would you do different if you had more time?
+
+	I would spend more time shortening code that takes up too much space. As it stands, scrolling through the code takes too long.
+
+6. How well your program meets the goal of being Object Oriented:
+
+	a. Were there classes that had clear responsibilities?
+
+		Yes, each class had a clear responsibility. The contact_folder class had the job of hold all information on a specific person that the user might want to send a message to.
+		The tree class had the job of managing the binary search tree data structure. Both node classes had the job of hold data in sets inside each data structure. The clist
+		class had the job of managing the circular linked list data structure. Lastly, the comm base class and its derived classes had the job of adding different functionality
+		to different communication methods.
+
+	b. Where did the hierarchical relationships fit in and would it be effective in a larger application?
+
+		The hierarchical relationship was between the abstract base class: comm, and the derived classes: texting, mail, email, and facebook.
+		This relationship would definitely be applicable to a larger project, hence the usage of pure virtual function. Despite being different communication
+		methods, they all need to send, receive, read, store, and remove. If there were even more communication methods these virtual functions could still be applied.
+
+	c. What was not Object Oriented?
+
+		The tree class and the contact_folder class were not designed in any way that seemed object oriented. 
+
+	d. Can you envision a design that would have been more Object Oriented (if you had more time)?
+
+		Not in particular, although I feel as if there was a better way to incorporate my tree class and contact_folder class into the design as a whole,
+		rather than just tossing them into main with everything like a giant mixing pot.
