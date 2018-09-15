@@ -36,7 +36,7 @@ contact_folder::contact_folder(const contact_folder & to_copy)
     ID = to_copy.ID;
     if(to_copy.mailing_address)//make sure something was handed in
     {
-        mailing_address = new char*[5];/array of character arrays
+        mailing_address = new char*[5];//array of character arrays
         for(int i = 0; i < 5; ++i)
         {
             mailing_address[i] = NULL;
